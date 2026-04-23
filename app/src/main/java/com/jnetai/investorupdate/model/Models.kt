@@ -19,9 +19,15 @@ data class Investor(
 )
 
 enum class InvestorStage(val label: String) {
-    LEAD("Lead"),\n    PROSPECT("Prospect"),\n    ACTIVE("Active"),\n    EXITED("Exited")
+    LEAD("Lead"),
+    PROSPECT("Prospect"),
+    ACTIVE("Active"),
+    EXITED("Exited")
 }
 
 enum class FundingStage(val label: String) {
-    SEED("Seed"),\n    SERIES_A("Series A"),\n    SERIES_B("Series B"),\n    GROWTH("Growth")
+    SEED("Seed"),
+    SERIES_A("Series A"),
+    SERIES_B("Series B"),
+    GROWTH("Growth")
 }
