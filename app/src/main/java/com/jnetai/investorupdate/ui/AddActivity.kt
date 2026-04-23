@@ -27,9 +27,16 @@ class AddActivity : AppCompatActivity() {
         binding.statusSpinner.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, FundingStage.values().map { it.label })
 
         binding.saveButton.setOnClickListener {
-            val title = binding.titleEdit.text?.toString()?.trim() ?: ""
-            if (title.isBlank()) { Toast.makeText(this, "Title required", Toast.LENGTH_SHORT).show(); return@setOnClickListener }
-            lifecycleScope.launch { app.database.dao().insert(Investor(name = title, type = InvestorStage.values()[binding.typeSpinner.selectedItemPosition], status = FundingStage.values()[binding.statusSpinner.selectedItemPosition], notes = binding.notesEdit.text?.toString()?.trim() ?: "")); finish() }
+            val name = binding.titleEdit.text?.toString()?.trim() ?: ""
+            if (name.isBlank()) { Toast.makeText(this, "Name required", Toast.LENGTH_SHORT).show(); return@setOnClickListener }
+            lifecycleScope.launch {
+                app.database.dao().insert(Investor(
+                    name = name,
+                    stage = FundingStage.values()[binding.statusSpinner.selectedItemPosition],
+                    notes = binding.notesEdit.text?.toString()?.trim() ?: ""
+                ))
+                finish()
+            }
         }
     }
     override fun onSupportNavigateUp(): Boolean { finish(); return true }
