@@ -35,7 +35,7 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun showDetail(i: Investor) {
-        binding.titleText.text = i.title
+        binding.titleText.text = i.name
         binding.detailText.text = "${i.type.label} · ${i.status.label}"
         binding.notesText.text = i.notes.ifEmpty { "No notes" }
     }

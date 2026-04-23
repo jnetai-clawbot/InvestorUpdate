@@ -14,7 +14,7 @@ class ItemAdapter(private val onClick: (Investor) -> Unit) : RecyclerView.Adapte
     override fun onBindViewHolder(h: VH, pos: Int) {
         val item = items[pos]
         // Use reflection-safe field access - title is the display field
-        h.binding.titleText.text = item.title.ifEmpty { item.name }
+        h.binding.titleText.text = item.name.ifEmpty { item.name }
         h.binding.subtitleText.text = item.status.label
         h.binding.root.setOnClickListener { onClick(item) }
     }

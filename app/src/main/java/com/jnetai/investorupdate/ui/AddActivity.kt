@@ -29,7 +29,7 @@ class AddActivity : AppCompatActivity() {
         binding.saveButton.setOnClickListener {
             val title = binding.titleEdit.text?.toString()?.trim() ?: ""
             if (title.isBlank()) { Toast.makeText(this, "Title required", Toast.LENGTH_SHORT).show(); return@setOnClickListener }
-            lifecycleScope.launch { app.database.dao().insert(Investor(title = title, type = InvestorStage.values()[binding.typeSpinner.selectedItemPosition], status = FundingStage.values()[binding.statusSpinner.selectedItemPosition], notes = binding.notesEdit.text?.toString()?.trim() ?: "")); finish() }
+            lifecycleScope.launch { app.database.dao().insert(Investor(name = title, type = InvestorStage.values()[binding.typeSpinner.selectedItemPosition], status = FundingStage.values()[binding.statusSpinner.selectedItemPosition], notes = binding.notesEdit.text?.toString()?.trim() ?: "")); finish() }
         }
     }
     override fun onSupportNavigateUp(): Boolean { finish(); return true }

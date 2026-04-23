@@ -8,6 +8,7 @@ import com.jnetai.investorupdate.data.Converters
 @Entity(tableName = "investors")
 @TypeConverters(Converters::class)
 data class Investor(
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
     val name: String = "",
     val firm: String = "",
     val email: String = "",
